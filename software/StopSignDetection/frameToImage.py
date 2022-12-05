@@ -16,7 +16,7 @@ def stop_sign_detection(image_path):
     # Use minSize because for not  
     # bothering with extra-small  
     # dots that would look like STOP signs 
-    stop_data = cv2.CascadeClassifier(os.path.join('StopSignDetection' , 'stop_data.xml')) 
+    stop_data = cv2.CascadeClassifier('stop_data.xml') 
     found = stop_data.detectMultiScale(img_gray,  
                                     minSize =(20, 20)) 
     
@@ -47,10 +47,8 @@ def stop_sign_detection(image_path):
     plt.show() 
 
 
-
-
 # Opens the inbuilt camera of laptop to capture video.
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_POS_MSEC, 400)
 i = 0
 
@@ -67,16 +65,16 @@ while (cap.isOpened()):
     
     # curr_path = os.getcwd()
     # curr_dir = os.path.join(curr_path, 'StopSignDetection')
-    image_dir = os.path.join('StopSignDetection', 'Image') 
+    image_dir = 'Image'
     image_file = os.path.join(image_dir, 'image' + str(i) + '.jpg')
     print(image_file)
     cv2.imwrite(image_file, frame)
     stop_sign_detection(image_file)
-    cv2.waitKey()
-    # os.remove(image_file)
-    i += 1
-    if (i > 0):
-        break
+    # cv2.waitKey()
+    os.remove(image_file)
+    # i += 1
+    # if (i > 0):
+    #     break
     
 cap.release()
 cv2.destroyAllWindows()
