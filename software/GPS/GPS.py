@@ -58,7 +58,7 @@ try:
             dic[coordinate[0]+','+coordinate[1]] = 1
             if len(dic) == 10:
                 break
-    print(dic)
+    #print(dic)
 
 except serial.SerialException:
     print("No connection")
