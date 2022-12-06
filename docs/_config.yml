@@ -5,4 +5,5 @@ show_downloads: true
 
 # Name of website
 title: STOP and GO!
+logo: /media/stopSignLogo.jpeg
 description: Project for UCLA ECEM202A/CSM213A (Fall 2022)
