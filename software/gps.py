@@ -11,16 +11,19 @@ print(locmap)'''
 
 import serial
 
-try:
-    #cd /dev
-    # ls tty.*
-    gps = serial.Serial('/dev/tty.usbmodem145101', baudrate=9600)
-    dic = {}
-    while True:
-        ser_bytes = gps.readline()
+class GPS:
+    def __init__(self):
+        try:
+            # scan port using: $cd /dev && ls tty.*
+            self.gps = serial.Serial('/dev/tty.usbmodem11301', baudrate=9600)
+        except serial.SerialException:
+            print("gps not connected.")
+        
+    def get_coordinate(self):
+        ser_bytes = self.gps.readline()
         decoded_bytes = ser_bytes.decode("utf-8")
         data = decoded_bytes.split(",")
-        #print(data)
+        
         if data[0] == "$GPRMC":
             lat_nmea = data[3]
             lat_degrees = lat_nmea[:2]
@@ -47,19 +50,18 @@ try:
             long_mmm = str(long_mmm).strip('0.')[:8]
             longitude = longitude_degrees + "." + long_mmm
             coordinate = [latitude, longitude]
-            print("Lat is "+coordinate[0]+" Lon is",coordinate[1])
-            filename = 'data.txt'
+            return coordinate
 
-            with open(filename,'a') as f:
-                f.write(str(coordinate)+'\n')
 
-            intersection = {}
-
-            dic[coordinate[0]+','+coordinate[1]] = 1
-            if len(dic) == 10:
-                break
-    #print(dic)
-
-except serial.SerialException:
-    print("No connection")
-
+def example():
+    gps = GPS()
+    try:
+        while True:
+            coord = gps.get_coordinate()
+            if coord:
+                print(f'lat:{coord[0]}, lon:{coord[1]}')
+    except KeyboardInterrupt:
+        pass
+    
+if __name__ == "__main__":
+    example()

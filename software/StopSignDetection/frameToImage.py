@@ -1,8 +1,13 @@
+import serial
 import cv2
-from matplotlib import pyplot as plt 
+import time
 import os
+import obd
+from matplotlib import pyplot as plt 
 
-def stop_sign_detection(image_path):
+stop_data = cv2.CascadeClassifier('stop_data.xml') 
+
+def stop_sign_detection(image_path, image_num, f):
     # Opening image 
     # image_num = input("Enter the image num:")
     img = cv2.imread(image_path) 
@@ -16,7 +21,7 @@ def stop_sign_detection(image_path):
     # Use minSize because for not  
     # bothering with extra-small  
     # dots that would look like STOP signs 
-    stop_data = cv2.CascadeClassifier('stop_data.xml') 
+    # stop_data = cv2.CascadeClassifier('stop_data.xml') 
     found = stop_data.detectMultiScale(img_gray,  
                                     minSize =(20, 20)) 
     
@@ -29,6 +34,8 @@ def stop_sign_detection(image_path):
         # There may be more than one 
         # sign in the image 
         for (x, y, width, height) in found: 
+            
+            f.write("Stop Sign Located: ({}, {}, {}, {}, {})".format(image_num, x, y, width, height) + '\n')
             
             # We draw a green rectangle around 
             # every recognized sign 
@@ -52,30 +59,36 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_POS_MSEC, 400)
 i = 0
 
-while (cap.isOpened()):
-    success, frame = cap.read();
-    
-    # This condition prevents from infinite looping 
-    
-    # incase video ends.
-    if success == False:
-        break
-    
-    # Save Frame by Frame into disk using imwrite method
-    
-    # curr_path = os.getcwd()
-    # curr_dir = os.path.join(curr_path, 'StopSignDetection')
-    image_dir = 'Image'
-    image_file = os.path.join(image_dir, 'image' + str(i) + '.jpg')
-    print(image_file)
-    cv2.imwrite(image_file, frame)
-    stop_sign_detection(image_file)
-    # cv2.waitKey()
-    os.remove(image_file)
-    # i += 1
-    # if (i > 0):
-    #     break
-    
+with open('gps.txt','a') as f:
+    while (cap.isOpened()):
+        time.sleep(0.1)
+        success, frame = cap.read();
+        
+        # This condition prevents from infinite looping 
+        
+        # incase video ends.
+        if success == False:
+            break
+        
+        # Save Frame by Frame into disk using imwrite method
+        
+        # curr_path = os.getcwd()
+        # curr_dir = os.path.join(curr_path, 'StopSignDetection')
+        image_dir = 'Image'
+        image_file = os.path.join(image_dir, 'image' + str(i) + '.jpg')
+        print(image_file)
+        cv2.imwrite(image_file, frame)
+        i += 1
+        
+        stop_sign_detection(image_file, i, f)
+        # cv2.waitKey()
+        # os.remove(image_file)
+        # i += 1
+        # if (i > 0):
+        #     break
+
+
+            
 cap.release()
 cv2.destroyAllWindows()
 
