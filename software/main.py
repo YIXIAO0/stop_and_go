@@ -9,11 +9,12 @@ from matplotlib import pyplot as plt
 
 def main():
     # init
-    gps = GPS()
-    obd = OBD()
-    pushover = Pushover()
-    model = StopSignDetectionModel()
-    cap = cv2.VideoCapture(0)
+    # gps = GPS()
+    # obd = OBD()
+    # pushover = Pushover()
+    # model = StopSignDetectionModel()
+    # cap = cv2.VideoCapture(0)
+
 
     # main loop
     try:
