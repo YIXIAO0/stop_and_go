@@ -9,7 +9,8 @@
 
 # Abstract
 
-Provide a brief overview of the project objhectives, approach, and results.
+For our project, we strive to design an efficient technique to check the driver’s behavior (e.g. stop the car before the STOP sign) and remind them to follow the traffic law with a punishment and reward mechanism. In order to measure our success, we evaluate our final system in how well the various aspects of the stop sign detection and warning system can be implemented. This includes stop sign detection/locating, movement detection (car’s speed), formulation of the application system, punishment and rewarding notification, and etc. We capture real-time images through in-built method in python and then use existing methods in opencv as the foundation of our algorithm to detect STOP signs in real-time. We implement car motion/speed detection through OBD-II and car location tracking through GPS. We also integrate this work with a camera system, and have a main source where each component is controlled accordingly. Furthermore, we create our application system through a Finite State Machine and incorporate with a punishment and rewarding mechanism to make the user experience more exciting. Results are promising as the system performs correctly as there are STOP signs in the test road. However, it has possible improvements such as better STOP sign detection algorithms that could detect partially visible signs and give users more accurate and safe instructions. We believe this project could be a foundation for an more accurate and feasible application of STOP sign detection, and help users/drivers follow the traffic rules in a more scientific way. 
+
 
 # 1. Introduction
 
