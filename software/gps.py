@@ -15,7 +15,7 @@ class GPS:
     def __init__(self):
         try:
             # scan port using: $cd /dev && ls tty.*
-            self.gps = serial.Serial('/dev/tty.usbmodem11301', baudrate=9600)
+            self.gps = serial.Serial('/dev/tty.usbmodem1301', baudrate=9600)
         except serial.SerialException:
             print("gps not connected.")
         
@@ -51,6 +51,8 @@ class GPS:
             longitude = longitude_degrees + "." + long_mmm
             coordinate = [latitude, longitude]
             return coordinate
+        else:
+            return []
 
 
 def example():
