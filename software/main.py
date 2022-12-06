@@ -46,19 +46,23 @@ def main():
     track_speed_count = 30
     
     last_coords = []
-    # stop_positions = {}
     stop_positions = defaultdict(str)
+    nearby_alert_interval = 0
 
     # main loop
     try:
         while True:
             time.sleep(0.1)
 
+            nearby_alert_interval += 1
             coords = gps.get_coordinate()
             if coords:
                 last_coords = coords
                 if stop_positions[coords[0][0:7] + coords[1][0:9]] == 1:
-                     print("There is a stop sign nearby")
+                    if nearby_alert_interval > 100:
+                        print("There is a stop sign nearby")
+                        playsound('./media/nearby.m4a')
+                        nearby_alert_interval = 0
 
             if state == State.DetectStopSign:
                 print("detecting stop sign...")
@@ -98,12 +102,12 @@ def main():
 
             elif state == State.Pass:
                 print("passed!")
-                playsound('/Users/chihchunhsu/Desktop/ucla/courses/ecem202a/project/pass.m4a')
+                playsound('./media/pass.m4a')
                 state = State.DetectStopSign
 
             elif state == State.Fail:
                 print("failed!")
-                playsound('/Users/chihchunhsu/Desktop/ucla/courses/ecem202a/project/fail.m4a')
+                playsound('./media/fail.m4a')
                 pushover.send_message("Be careful! Someone is running a stop sign!")
                 state = State.DetectStopSign
                 
