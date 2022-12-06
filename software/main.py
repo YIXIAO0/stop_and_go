@@ -28,21 +28,31 @@ def main():
     try:
         while True:
             time.sleep(0.1)
-            
+
             if state == State.DetectStopSign:
                 print("detecting stop sign...")
+                # check if a stop sign is detected
+                # to do: determine when to start tracking vehicle speed (switch state)
+                # to do: stop sign far away
+                # to work around: frame drop
+                # to work around: multiple stop sign detected (including ghost)
                 state = State.TrackVehicleSpeed
 
             elif state == State.TrackVehicleSpeed:
                 print("tracking vehicle speed...")
+                # check if speed goes zero
                 state = State.Pass
 
             elif state == State.Pass:
                 print("passed!")
+                # increase driver's credit
                 state = State.DetectStopSign
 
             elif state == State.Fail:
                 print("failed!")
+                # play audio
+                # send notification
+                # decrease driver's credit
                 state = State.DetectStopSign
             
     except KeyboardInterrupt:
