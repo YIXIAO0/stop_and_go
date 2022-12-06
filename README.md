@@ -1,9 +1,9 @@
 # STOP and GO!
-This is repository template for UCLA ECEM202A / CSM213A projects.
+This is the Project for UCLA ECEM202A/CSM213A (Fall 2022)
 
-Use the folders as follows:
+## Team
+* Ziyang Ji
+* Chih-Chun Hsu
+* Yi Xiao
 
-* doc/ for website content
-* software/ for code used in your project
-* data/ for data data used in your project
 
