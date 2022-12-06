@@ -2,7 +2,7 @@ import obd
 
 class OBD:
     def __init__(self):
-        self.connection = obd.OBD(portstr='/dev/tty.usbserial-130')
+        self.connection = obd.OBD(portstr='/dev/tty.usbserial-1130')
         if not self.connection.is_connected():
             print("obd not connected.")
 
@@ -13,10 +13,10 @@ class OBD:
 
 
 def example():
-    obd = OBD()
+    obd2 = OBD()
     try:
         while True:
-            print(obd.get_speed())
+            print(obd2.get_speed())
     except KeyboardInterrupt:
         pass
     
