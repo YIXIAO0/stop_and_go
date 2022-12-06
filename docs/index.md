@@ -4,9 +4,9 @@ Provide a brief overview of the project objhectives, approach, and results.
 
 # Team
 
-* Name of team member \#1 
-* Name of team member \#2 (delete this if necessary)
-* Name of team member \#3 (delete this if necessary)
+* Ziyang Ji
+* Chih-Chun Hsu
+* Yi Xiao
 
 # Required Submissions
 
