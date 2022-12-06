@@ -1,6 +1,6 @@
 # Abstract
 
-Currently, we do not have a mature system to monitor driver’s behavior before a STOP sign. There are plenty of drivers who don’t make a complete stop at the stop sign, since manually observing and making actions to the STOP sign is not easy for human beings. So we want to design an efficient technique to check the driver's behavior and remind them to obey the law, with a punishment and reward mechanism.
+Currently, we do not have an existing mature system to monitor driver’s behavior before a STOP sign. While there are plenty of drivers who don’t make a complete stop at the STOP sign, since manually observing and making actions to corresponding traffic sign is not easy for human beings. So, we strive to design an efficient technique to check the driver's behavior and remind them to follow the traffic rules, with a punishment and reward mechanism.
 
 # Team
 
