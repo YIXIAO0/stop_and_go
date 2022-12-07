@@ -10,7 +10,5 @@ Currently, we do not have an existing mature system to monitor driver’s behavi
 
 # Required Submissions
 
-* [Proposal](proposal)
-* [Midterm Checkpoint Presentation Slides](http://)
 * [Final Presentation Slides](http://)
 * [Final Report](report)
