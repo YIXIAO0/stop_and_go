@@ -23,5 +23,6 @@ $ pip install playsound
 
 ## How to run it
 ```
+$ cd software
 $ python main.py
 ```
