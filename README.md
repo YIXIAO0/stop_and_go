@@ -23,6 +23,10 @@ $ pip install obd
 $ pip install playsound
 ```
 
+#### Before running it
+- Run ```scan_port.py``` to get GPS tracker port and OBD-II port
+- Modify port strings in both ```gps.py``` and ```obd2.py```
+
 #### How to run it
 ```
 $ python main.py
