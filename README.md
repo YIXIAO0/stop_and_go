@@ -8,3 +8,20 @@ Currently, we do not have a mature system to monitor driver’s behavior before 
 * Ziyang Ji
 * Chih-Chun Hsu
 * Yi Xiao
+
+## Hardware
+- A GPS tracker
+- An USB webcam
+- An OBD-II reader
+
+## Required packages
+```
+$ pip install opencv-python
+$ pip install obd
+$ pip install playsound
+```
+
+## How to run it
+```
+$ python main.py
+```
