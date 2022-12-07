@@ -100,11 +100,11 @@ The test results demonstrate that the application can detect stop signs correctl
 Our results show we have pretty good accuracy in most of the scenarios, like the stop sign is clear in sight and GPS signal is good. While there are also some cases that the whole project still needs to improve, when the contrast in the picture is so high, the stop sign cannot be seen, so maybe we need a better camera. There can also be some improvements to the recognition algorithm to make it more accurate. At this time, the algorithm may recognize some other things like road signs as stop signs, so there might be some false positive cases.
 
 # 5. Discussion and Conclusions
-At this time, though our project is not perfect, we have it covers all our expectations from the beginning. There are still some works that can be done to refine this project.
+At this time, though our project is not perfect, we have it covers all assumptions from the beginning. And there are still some works that can be done to refine this project.
 
-Firstly, if the stop sign is being sheltered by the trees or cars on the side of the roads, we can only see a small portion of it. We hope our algorithm can cover these kinds of cases in the future. But since limited time this quarter, our algorithm cannot cover these corner cases.
+Firstly, if the stop sign is being sheltered by trees or cars on the side of the traffic roads, we can only see a small portion of it. We hope our stop sign recognition model can cover these kinds of cases in the future. But since limited time this quarter, our model cannot cover these corner cases.
 
-Secondly, we are still not sure about when to determine if the stop sign is officially recognized, which is a tricky part for us, since we don’t have lots of data for us to find the best opportunity. (count is reset to 0) This is crucial for us to improve the accuracy in the future, since we need to track both the speed of the vehicle and the location of the stop sign. 
+Secondly, we are still not sure about when to determine whether the stop sign is officially recognized, this is a tricky part for us, since we don’t have enough data to find the best approach to make this judgement. (And we reset count to 0 may cause fail detection, e.g. we detect stop sign in 1, 2, 3, 5, 6, 7, 8, 9.) This is crucial for us to improve the accuracy in the future, since we need to track both the speed of the vehicle and the location of the stop sign. 
 
 Thirdly, if there is a vehicle in front of us at the stop sign, we stop due to the front car stopping, but we don’t stop at the stop sign. Our algorithm at this time may not report this as abnormal behavior. We may cover this case by using a wider angle camera to better estimate our position to the stop sign, thus we can better judge the stooping position of the driver.
 
