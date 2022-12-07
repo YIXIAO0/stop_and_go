@@ -99,15 +99,11 @@ The test results demonstrate that the application can detect stop signs correctl
 
 Our results show we have pretty good accuracy in most of the scenarios, like the stop sign is clear in sight and GPS signal is good. While there are also some cases that the whole project still needs to improve, when the contrast in the picture is so high, the stop sign cannot be seen, so maybe we need a better camera. There can also be some improvements to the recognition algorithm to make it more accurate. At this time, the algorithm may recognize some other things like road signs as stop signs, so there might be some false positive cases.
 
-<p align="center">
-	[![PASS_CASE](https://img.youtube.com/vi/Na2aDo2SHMY/0.jpg)](https://www.youtube.com/watch?v=Na2aDo2SHMY)
-	<br>
-	PASS CASE
-	<br>
-	[![FAIL_CASE](https://img.youtube.com/vi/Z5afYko23qM/0.jpg)](https://www.youtube.com/watch?v=Z5afYko23qM)
-	<br>
-	FAIL CASE
-</p>
+
+[![PASS_CASE](https://img.youtube.com/vi/Na2aDo2SHMY/0.jpg)](https://www.youtube.com/watch?v=Na2aDo2SHMY)
+
+[![FAIL_CASE](https://img.youtube.com/vi/Z5afYko23qM/0.jpg)](https://www.youtube.com/watch?v=Z5afYko23qM)
+
 
 # 5. Discussion and Conclusions
 At this time, though our project is not perfect, we have it covers all assumptions from the beginning. And there are still some works that can be done to refine this project.
