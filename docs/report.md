@@ -57,8 +57,11 @@ During the PASS state, a positive audio will be played, user’s account score i
 
 The RECORD_GPS state runs apart from the main loop, and the GPS device continuously tracks vehicle’s location in real-time. 
 
-<img src="media/fsm.png" width="50%" height="50%">
-Figure 1. Finite State Machine of application system.
+<p align="center">
+	<img src="media/fsm.png" width="50%" height="50%">
+	<br>
+	Figure 1. Finite State Machine of application system.
+</p>
 
 	
 ### 3.b. Capture Imagine: 
@@ -68,8 +71,21 @@ Our first goal is to detect the stop sign on the road, we use the camera to capt
 ### 3.c. Car speed tracking: 
 By connecting the OBD-II device to the car, we can get the speed info of the car in a real-time format. So, when the stop sign is detected, we can then start to estimate the change of the speed by checking whether the speed reaches 0. Also, by tracking the size of the bounding box, we can estimate the distance from the car to the stop sign.
 
+<p align="center">
+	<img src="media/obd2_reader.jpeg" width="40%" height="40%">
+	<br>
+	Figure 2. OBD-II reader
+</p>
+
 ### 3.d. Location recording: 
 For each stop sign we meet, we want to record the position of it. We connect a GPS tracker to our computer and stick it on the roof of the vehicle. We collect the GPS info from the background in real-time. When the stop sign is detected, we can record the current GPS location. Due to the latency of the GPS, we have to record the coordinate when we first detect the stop sign. We want to put these coordinates to a dictionary and when the next time we are nearby the stop sign we visited, we can get a reminder that there is a stop sign.
+
+<p align="center">
+	<img src="media/gps_tracker.jpeg" width="40%" height="40%">
+	<br>
+	Figure 3. GPS tracker
+</p>
+
 
 ### 3.e. Notification System:
 When any driver runs a stop sign or doesn't stop completely before going, a safety notification will be pushed to anyone who subscribes to our system. This is to notify either pedestrians or other drivers to pay more attention to the road since someone is violating the rule. This feature is powered by Pushover® service.
