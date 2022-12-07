@@ -10,5 +10,5 @@ Currently, we do not have an existing mature system to monitor driver’s behavi
 
 # Required Submissions
 
-* [Final Presentation Slides](http://)
+* [Final Presentation Slides](https://docs.google.com/presentation/d/1r5KFxjyWiOd3SQezx1x5CooI2efSoL5aq3-Vwk03_-s/edit?usp=sharing)
 * [Final Report](report)
