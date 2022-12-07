@@ -57,7 +57,7 @@ During the PASS state, a positive audio will be played, user’s account score i
 
 The RECORD_GPS state runs apart from the main loop, and the GPS device continuously tracks vehicle’s location in real-time. 
 
-![Application Finite State Machine](media/fsm.png)
+![Application Finite State Machine](media/fms.png)
 Figure 1. Finite State Machine of application system.
 
 	
