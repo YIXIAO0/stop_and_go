@@ -97,7 +97,7 @@ We connected a phone to the main computer through USB. The phone was used to rec
 # 4. Evaluation and Results
 The test results demonstrate that the application can detect stop signs correctly and efficiently. We can also verify the warning function of an upcoming stop sign by passing the same stop sign multiple times from different directions, to see whether we can warn the driver if there is an upcoming stop sign or not. 
 
-Our results show we have pretty good accuracy in most of the scenarios, like the stop sign is clear in sight and GPS signal is good. While there are also some cases that the whole project still needs to improve, when the contrast in the picture is so high, the stop sign cannot be seen, so maybe we need a better camera. There can also be some improvements to the recognition algorithm to make it more accurate. At this time, the algorithm may recognize some other things like road signs as stop signs, so there might be some false positive cases.
+Our results show we have pretty good accuracy in most of the scenarios, like the stop sign is clear in sight and GPS signal is good. While there are also some cases that the whole project still needs to improve, for example, when the contrast in the picture is so high, the stop sign cannot be seen, etc. So, we may need a better camera or train a more accurate recognition model. And at this time, the stop sign detection model may recognize some other things like road name sign as stop sign, so there might be some false positive cases. 
 
 
 [![PASS_CASE](https://img.youtube.com/vi/Na2aDo2SHMY/0.jpg)](https://www.youtube.com/watch?v=Na2aDo2SHMY)
