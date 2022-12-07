@@ -44,7 +44,7 @@ On-board diagnostics (OBD) is a term referring to a vehicle's self-diagnostic an
 
 # 3. Technical Approach
 
-## Application Logic (Finite State Machine): 
+### 3.a. Application Logic (Finite State Machine): 
 The application presents itself as a finite state machine. It has a total of 6 states it uses: INIT, DETECT_STOP_SIGN, TRACK_VEHICLE_SPEED, PASS, FAIL, RECORD_GPS. 
 
 The application first starts in the state INIT where it begins reading in feed from the camera source. And since there are about 3 seconds time lag for application to start (initialize/launch the GPS and OBD II), the state INIT can be seen as a preparation stage for our camera source gets real-time frames of traffic road. After every features of this applications work as expected, it then moves onto the state DETECT_STOP_SIGN. 
@@ -56,39 +56,31 @@ During TRACK_VEHICLE_SPEED, the application will continuously record car speed. 
 During the PASS state, a positive audio will be played, user’s account score in the system will be incremented by 1, and in the meanwhile a positive notification will be pushed to user’s phone. During the FAIL state, a negative audio will be played, user’s account score in the system will be decremented by 1, the current GPS data will be added to the traffic violation hotspots database, and also a negative notification will be pushed to user’s phone. 
 
 The RECORD_GPS state runs apart from the main loop, and the GPS device continuously tracks vehicle’s location in real-time. 
+
+![Application Finite State Machine](media/fsm.png)
+Figure 1. Finite State Machine of application system.
+
 	
-## Capture Imagine: 
+### 3.b. Capture Imagine: 
 
 Our first goal is to detect the stop sign on the road, we use the camera to capture the picture and send it to our computer in real time, running the pre-trained model to get the result. With each frame we captured, there is a bounding box showing if there is a stop sign detected. Then we will start tracking the change of the car speed and record the GPS coordinate accordingly for further implementation. 
 
-## Car speed tracking: 
+### 3.c. Car speed tracking: 
 By connecting the OBD-II device to the car, we can get the speed info of the car in a real-time format. So, when the stop sign is detected, we can then start to estimate the change of the speed by checking whether the speed reaches 0. Also, by tracking the size of the bounding box, we can estimate the distance from the car to the stop sign.
 
-## Location recording: 
+### 3.d. Location recording: 
 For each stop sign we meet, we want to record the position of it. We connect a GPS tracker to our computer and stick it on the roof of the vehicle. We collect the GPS info from the background in real-time. When the stop sign is detected, we can record the current GPS location. Due to the latency of the GPS, we have to record the coordinate when we first detect the stop sign. We want to put these coordinates to a dictionary and when the next time we are nearby the stop sign we visited, we can get a reminder that there is a stop sign.
 
-## Notification System:
+### 3.e. Notification System:
 When any driver runs a stop sign or doesn't stop completely before going, a safety notification will be pushed to anyone who subscribes to our system. This is to notify either pedestrians or other drivers to pay more attention to the road since someone is violating the rule. This feature is powered by Pushover® service.
 
-## Camera System:
+### 3.f. Camera System:
 We connected a phone to the main computer through USB. The phone was used to record real-time traffic roads and send images to the main computer every 0.1s. Given the average car speed is 18.1 m/s, car moves 1.81m between two recorded points. While the phone and the recognition model are able to capture and detect the stop sign 18m away, the time lag is being considered as acceptable. 
 
 
 # 4. Evaluation and Results
-The test results demonstrate that the application can detect stop signs correctly and efficiently. We can also verify the warning function of an upcoming stop sign by passing the same stop sign multiple times from different directions, to see whether we can warn the driver if there is an upcoming stop sign or not. 
-
-Our results show we have pretty good accuracy in most of the scenarios, like the stop sign is clear in sight and GPS signal is good. While there are also some cases that the whole project still needs to improve, when the contrast in the picture is so high, the stop sign cannot be seen, so maybe we need a better camera. There can also be some improvements to the recognition algorithm to make it more accurate. At this time, the algorithm may recognize some other things like road signs as stop signs, so there might be some false positive cases.
 
 # 5. Discussion and Conclusions
-At this time, though our project is not perfect, we have a project that covers all our expectations from the beginning. There is still some work that can be done to refine this project.
-
-Firstly, if the stop sign is being sheltered by the trees or cars on the side of the roads, we can only see a small portion of it. We hope our algorithm can cover these kinds of cases in the future. But since limited time this quarter, our algorithm cannot cover these corner cases.
-
-Secondly, we are still not sure about when to determine if the stop sign is officially recognized, which is a tricky part for us, since we don’t have lots of data for us to find the best opportunity. (count is reset to 0) This is crucial for us to improve the accuracy in the future, since we need to track both the speed of the vehicle and the location of the stop sign. 
-
-Third, if there is a vehicle in front of us at the stop sign, we stop due to the front car stopping, but we don’t stop at the stop sign. Our algorithm at this time may not report this as abnormal behavior. We may cover this case by using a wider angle camera to better estimate our position to the stop sign, thus we can better judge the stooping position of the driver.
-
-Last but not least, we may add some more features for this project in the future, like the warning functions may also notify the drivers about the details of the intersections (i.e. 2-way stop signs, 4-way stop signs).
 
 # 6. References
 
