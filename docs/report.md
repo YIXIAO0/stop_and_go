@@ -13,19 +13,25 @@ For our project, we strive to design an efficient technique to check the driver�
 
 
 # 1. Introduction
-
+### Motivation & Objective
 In our home country, there is no such thing as a stop sign. When we first drove in the US, it took us some time to get used to the stop sign rules. However, we notice that some people do not come to a complete stop or even run through stop signs when they don't see a police officer nearby. This bad driving habit might put other drivers or pedestrians in danger. Approximately one third of all vehicular accidents occur in stop sign controlled intersections. Furthermore, these accidents account for over 40% of all fatal vehicular accidents [1]. Thus, it is important to improve the driver’s awareness of stop signs and enforce the stop sign rule. Our goal is to implement an application that can improve stop sign awareness for driving safety. This app will include features such as detecting stop signs, recording GPS locations, tracking vehicle speed, determining if the driver follows the rule, rewarding or punishing the driver accordingly.
 
+### State of the Art & Its Limitations
 Vehicle accident happens every day, every hour, even every minute. According to the United States Department of Transportation (USDOT), approximately one third of all vehicular accidents occur in stop sign controlled intersections. While we currently only have applications like StopWatcher that with a fixed stop sign location database, this is not safe and accurate enough for users to use in real world cases. In the meanwhile, current applications in this area are not motivating, it only gives rigid instructions to users. And if someone does not stop at the stop sign, there is no effective way to catch and punish them, since police officers would not be every stop sign. With insufficient supervision, there are lots of irresponsible drivers who do not fully stop or not even stop at the stop sign. This causes lots of hurts and death. So, we strive to develop an interesting application which could detect stop sign with a more accurate and real-time technique, and motivate users to follow the traffic rule in an interesting way.
 
+### Novelty & Rationale
 Currently, we have some old-fashioned stop sign warning systems, e.g. StopWatcher[1], which could remind drivers of the stop sign through real-time location tracking (GPS) and stop sign databases. But this kind of application has been out for a decade, while the development of computer vision is fast, we are able to build a stop sign recognition model to detect stop signs in a real-time mechanism. Thus, apart from recording the stop sign location into a database, our application is able to remind drivers to make appropriate reaction to the stop signs that are not in our database. In this way, our application could provide user safer experience. We also strive to add more interesting features to our application, for example, we are trying to make a ranking system like WeRun. By deducting and adding points to the user’s account, users in our platform will get a ranking on a daily basis. This new feature will motivate users to follow the traffic rule and further decrease vehicle accidents.
 
+### Potential Impact
 If our project is successful, we have an efficient way to monitor the driver’s behavior at the stop sign. We hope we can have a daily ranking of users’ performances in reacting to stop signs, better driving behavior can bring the driver to a higher rank. In the same time, with the warning of upcoming stop signs in real time, vehicle accidents in stop sign controlled intersections would be reduced, users’ safety would be further guaranteed. 
 
+### Challenges
 There are still some challenges existing in our project, like cameras should be set at an ideal degree to monitor the stop signs on the road. And due to the imperfection of the stop sign recognition model, there is a low possibility of detecting other things as stop signs and failing to detect stop signs. Also, stop signs in the shadows or being partially covered by other objects is a big challenge for the recognition model to detect, while the location of stop signs might still have not been added to our database. And there might be some privacy issues due to the fact that we capture the images from our camera on traffic and record locations from GPS in a random manner.
 
+### Requirements for Success
 To perform the project well, there are several aspects need to be handled carefully. First, for the system to be reliable and robust, a stop sign detection model with high accuracy and precision is required. Second, we need to know how to read real-time vehicle speed from the OBD-II interface and also the GPS locations from the tracker. Third, the skill to design an algorithm that can correctly detect if the driver follows the rule is also required. Finally, a closed road or safe open road test is also required in order to perform the test and debug.
 
+### Metrics of Success
 We decide to measure the success of our application through four perspectives. 1. the accuracy of detecting stop signs on a real-time basis. 2. the accuracy of the longitude and latitude of stop signs stored in our database. 3. drivers receive the stop sign reminder ahead with enough time for making a stop action. 4. the pass/fail rule standards are acceptable for users.  
 
 
