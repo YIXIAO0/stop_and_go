@@ -114,7 +114,7 @@ Our results show we have pretty good accuracy in most of the scenarios, like the
 # 5. Discussion and Conclusions
 At this time, though our project is not perfect, we have it covers all assumptions from the beginning. And there are still some works that can be done to refine this project.
 
-Firstly, if the stop sign is being sheltered by trees or cars on the side of the traffic roads, we can only see a small portion of it. We hope our stop sign recognition model can cover these kinds of cases in the future. But since limited time this quarter, our model cannot cover these corner cases.
+Firstly, if the stop sign is being sheltered by trees or cars on the side of the traffic roads, we can only see a small portion of it. We hope our stop sign recognition model can cover these kinds of cases in the future. But since the limitation of time this quarter, our model cannot cover these corner cases.
 
 Secondly, we are still not sure about when to determine whether the stop sign is officially recognized, this is a tricky part for us, since we don’t have enough data to find the best approach to make this judgement. (And we reset count to 0 may cause fail detection, e.g. we detect stop sign in 1, 2, 3, 5, 6, 7, 8, 9.) This is crucial for us to improve the accuracy in the future, since we need to track both the speed of the vehicle and the location of the stop sign. 
 
