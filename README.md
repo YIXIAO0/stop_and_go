@@ -36,3 +36,6 @@ $ python main.py
 - https://www.youtube.com/watch?v=Z5afYko23qM
 - https://www.youtube.com/watch?v=Na2aDo2SHMY
 - https://www.youtube.com/watch?v=o3Ama_XLEaA
+
+#### Slides
+- https://docs.google.com/presentation/d/1MiQQvRz8lBRu6owe3-o4eeNgU3pWQAm2EI3YiuPV6ow
