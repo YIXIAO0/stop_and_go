@@ -31,3 +31,8 @@ $ pip install playsound
 ```
 $ python main.py
 ```
+
+#### Demo videos
+- https://www.youtube.com/watch?v=Z5afYko23qM
+- https://www.youtube.com/watch?v=Na2aDo2SHMY
+- https://www.youtube.com/watch?v=o3Ama_XLEaA
