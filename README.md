@@ -39,3 +39,6 @@ $ python main.py
 
 #### Slides
 - https://docs.google.com/presentation/d/1MiQQvRz8lBRu6owe3-o4eeNgU3pWQAm2EI3YiuPV6ow
+
+#### Website
+- https://yixiao0.github.io/stop_and_go/
